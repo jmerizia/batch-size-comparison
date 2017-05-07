@@ -35,8 +35,8 @@ for i = 1:iters;
 	costs = 0.5 * ((OutputLayer - Expected) .^ 2);
 	costs2 = 0.5 * ((OutputLayer2 - Expected) .^ 2);
 
-	CostVec(i) = sum(round(OutputLayer) == Expected) / 4;
-	CostVec2(i) = sum(round(OutputLayer2) == Expected) / 4;
+	CostVec(i) = sum(costs);
+	CostVec2(i) = sum(costs2);
 
 	[W1change, W2change] = grad(InputVal, Weights1, Weights2, OutputVal, ExpectedVal);
 	[W1change2, W2change2] = grad(InputLayer, Weights12, Weights22, OutputLayer2, Expected);
@@ -55,10 +55,10 @@ hold on
 plot(1:iters, CostVec2, 'color', 'blue')
 hold off
 legend(['b.s.=1', 'b.s.=FULL'])
-axis([1, iters, 0, 1])
+axis([1, iters, 0, 2])
 disp('was: ')
 disp(OutputLayer)
 disp('rounded: ')
-disp(round(OutputLayer))
+disp(OutputLayer)
 disp('should be: ')
 disp(Expected)
