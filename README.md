@@ -6,4 +6,4 @@ Clone this repository and run "ez_nn.m" in Octave/Matlab.
 
 Results:
 
-![cost curve graph](batch-size-comparison/cost_curve.png)
+![cost curve graph](batch-size-comparison/cost_curve.png?raw=true)
